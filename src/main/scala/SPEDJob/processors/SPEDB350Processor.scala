@@ -16,6 +16,7 @@ object SPEDB350Processor extends SPEDBaseProcessor {
         s.COD_CTD,
         s.CTA_ISS,
         s.CTA_COSIF,
+        s.QTD_OCOR,
         s.COD_SERV,
         CAST(s.VL_CONT AS DECIMAL(18, 2)) AS VL_CONT,
         CAST(s.VL_BC_ISS AS DECIMAL(18, 2)) AS VL_BC_ISS,

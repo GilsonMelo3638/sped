@@ -13,6 +13,7 @@ object SPEDE510Processor extends SPEDBaseProcessor {
         s.LINHA,
         s.ID_BASE,
         s.REG,
+        s.CFOP,
         s.CST_IPI,
         CAST(s.VL_CONT_IPI AS DECIMAL(18, 2)) AS VL_CONT_IPI,
         CAST(s.VL_BC_IPI AS DECIMAL(18, 2)) AS VL_BC_IPI,

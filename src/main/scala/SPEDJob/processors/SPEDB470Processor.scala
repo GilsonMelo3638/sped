@@ -8,6 +8,7 @@ object SPEDB470Processor extends SPEDBaseProcessor {
   val config: SPEDConfig = super.config(
     """
       SELECT
+        s.ID_PAI,
         s.ID,
         s.LINHA,
         s.ID_BASE,

@@ -14,6 +14,7 @@ object SPEDB030Processor extends SPEDBaseProcessor {
           s.ID_BASE,
           s.REG,
           s.SER,
+          s.COD_MOD,
           s.NUM_DOC_INI,
           s.NUM_DOC_FIN,
           to_date(CAST(s.DT_DOC AS STRING), 'ddMMyyyy') as DT_DOC,
