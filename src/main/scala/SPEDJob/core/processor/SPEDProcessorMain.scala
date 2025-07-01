@@ -1,5 +1,6 @@
 package SPEDJob.core.processor
 
+import SPEDJob.core.utils.ExternalTableCreator
 import SPEDJob.processors._
 import org.apache.spark.sql.functions.col
 import org.apache.spark.sql.{DataFrame, SparkSession}
@@ -105,6 +106,7 @@ object SPEDProcessorMain {
       .master("yarn")
       .config("spark.sql.parquet.writeLegacyFormat", "true")
       .config("spark.executor.instances", "20")
+      .config("spark.sql.sources.partitionOverwriteMode", "dynamic") // Importante para overwrite parcial
       .getOrCreate()
   }
 
@@ -166,7 +168,7 @@ object SPEDProcessorMain {
         processor.process(referenceData + ("r0000" -> r0000Cached), config)
       }
     }
-
+    ExternalTableCreator.main(Array())
     spark.stop()
   }
 }
