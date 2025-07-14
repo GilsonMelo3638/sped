@@ -8,20 +8,21 @@ import org.apache.spark.sql.{DataFrame, SparkSession}
 object SPEDProcessorMain {
   // Lista de tabelas a serem processadas (centralizada para evitar repetição)
   private val TABLES_TO_PROCESS = List(
-    "0150", "0200", "0220", "0221", "0450", "0460", "9900", "9999", "B020", "B025", "B030",
-    "B035", "B350", "B420", "B440", "B460", "B470", "B500", "B510", "C100", "C113", "C170",
-    "C176", "C190", "C191", "C195", "C197", "C390", "C400", "C405", "C410", "C420", "C460",
-    "C470", "C490", "C500", "C510", "C590", "C595", "D100", "D101", "D190", "D195", "D197",
-    "D300", "D310", "D400", "D410", "D420", "D500", "D510", "D530", "D590", "D695", "D696",
-    "D697", "E110", "E111", "E112", "E113", "E115", "E116", "E200", "E210", "E220", "E230",
-    "E240", "E250", "E300", "E310", "E311", "E313", "E316", "E500", "E510", "E520", "E530",
-    "E531"
+    "0150", "0100", "0200", "0220", "0221", "0450", "0460", "9900", "9999", "B020", "B025",
+    "B030", "B035", "B350", "B420", "B440", "B460", "B470", "B500", "B510", "C100", "C113",
+    "C170", "C176", "C190", "C191", "C195", "C197", "C390", "C400", "C405", "C410", "C420",
+    "C460", "C470", "C490", "C500", "C510", "C590", "C595", "D100", "D101", "D190", "D195",
+    "D197", "D300", "D310", "D400", "D410", "D420", "D500", "D510", "D530", "D590", "D695",
+    "D696", "D697", "E100", "E110", "E111", "E112", "E113", "E115", "E116", "E200", "E210",
+    "E220", "E230", "E240", "E250", "E300", "E310", "E311", "E312", "E313", "E316", "E500",
+    "E510", "E520", "E530", "E531"
   )
 
   // Mapeamento de processadores (centralizado)
   private val PROCESSORS = Map(
     "0150" -> SPED0150Processor.config,
     "0200" -> SPED0200Processor.config,
+    "0100" -> SPED0100Processor.config,
     "0220" -> SPED0220Processor.config,
     "0221" -> SPED0221Processor.config,
     "0450" -> SPED0450Processor.config,
@@ -76,6 +77,7 @@ object SPEDProcessorMain {
     "D695" -> SPEDD695Processor.config,
     "D696" -> SPEDD696Processor.config,
     "D697" -> SPEDD697Processor.config,
+    "E100" -> SPEDE100Processor.config,
     "E110" -> SPEDE110Processor.config,
     "E111" -> SPEDE111Processor.config,
     "E112" -> SPEDE112Processor.config,
@@ -91,6 +93,7 @@ object SPEDProcessorMain {
     "E300" -> SPEDE300Processor.config,
     "E310" -> SPEDE310Processor.config,
     "E311" -> SPEDE311Processor.config,
+    "E312" -> SPEDE312Processor.config,
     "E313" -> SPEDE313Processor.config,
     "E316" -> SPEDE316Processor.config,
     "E500" -> SPEDE500Processor.config,
